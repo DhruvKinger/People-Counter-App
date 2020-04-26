@@ -42,12 +42,12 @@ In investigating potential people counter models, I tried each of the following 
 
 - Model 1: [ssd_mobilenet_v2_coco]
   - [http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz]
-  - I converted the model to an Intermediate Representation with the following arguments... 
+- I converted the model to an Intermediate Representation with the following arguments... 
   * wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
     Unpack the file
-* tar -xvf   ssd_mobilenet_v2_coco_2018_03_29.tar.gz
-To go in the directory
-* cd ssd_mobilenet_v2_coco_2018_03_29
+  * tar -xvf   ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+- To go in the directory
+   * cd ssd_mobilenet_v2_coco_2018_03_29
   - The model was insufficient for the app because...
   - I tried to improve the model for the app by...
   

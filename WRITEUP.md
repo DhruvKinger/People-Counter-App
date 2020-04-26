@@ -90,3 +90,25 @@ so it is not suitable to choose this model.
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
 
 - The model was insufficient for the app because It also has issues like first model where it failed to detect person in specific specific seconds like :It failed in respective seconds 0:07,0:17 and when second person came it didn't worked for 17 seconds from 0:25 to 0:42. Similarly for 3rd person it didn't worked in 51st second,53rd and 1:05  again it failed for 20 seconds from 1:35 to 1:50.thus average duration may not be optained exactly so we cann't use this model as well.
+
+
+## Model 4: [ssd_mobilenet_v1_coco ]
+ 
+ - [http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz]
+ - I converted the model to an Intermediate Representation with the following arguments...
+    * wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2018_01_28.tar.gz
+  -Unpack the file
+    * tar -xvf ssd_mobilenet_v1_coco_2018_01_28.tar.gz
+  -To go in directory 
+    * cd ssd_mobilenet_v1_coco_2018_01_28
+  -Command to run
+   * python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --  reverse_input_channels 
+--tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v1_support.json
+
+- These errors lead to failure of conversion of model into IR   
+Or because the node inputs have incorrect values/shapes.
+[ ERROR ]  Or because input shapes are incorrect (embedded to the model or passed via --input_shape).
+[ ERROR ]  Run Model Optimizer with --log_level=DEBUG for more information.
+[ ERROR ]  Not all output shapes were inferred or fully defined for node "image_tensor". 
+
+

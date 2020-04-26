@@ -44,7 +44,7 @@ In investigating potential people counter models, I tried each of the following 
   - [http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz]
 - I converted the model to an Intermediate Representation with the following arguments... 
   * wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
-    Unpack the file
+    *Unpack the file
   * tar -xvf   ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 - To go in the directory
    * cd ssd_mobilenet_v2_coco_2018_03_29

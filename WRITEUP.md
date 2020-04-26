@@ -6,11 +6,9 @@ questions.
 
 ## Explaining Custom Layers
 
-The process behind converting custom layers involves...
+The process behind converting custom layers depends on frameowrks we use either it is tensorflow,caffee or kaldi.We can find it here.[Process](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Customize_Model_Optimizer.html).
 
-Some of the potential reasons for handling custom layers are...
-
-## Comparing Model Performance
+Some of the potential reasons for handling custom layers is to optimize our pre-trained models and convert them to a intermediate representation without a lot of loss of accuracy and of course shrink and speed up the Performance.
 
 My method(s) to compare models before and after conversion to Intermediate Representations
 were...

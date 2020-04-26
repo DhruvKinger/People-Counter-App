@@ -40,21 +40,22 @@ a successful model.]
 
 In investigating potential people counter models, I tried each of the following three models:
 
-# Model 1: [ssd_mobilenet_v2_coco]
+## Model 1: [ssd_mobilenet_v2_coco]
  
  - [http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz]
 - I converted the model to an Intermediate Representation with the following arguments... 
   * wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
  - Unpack the file
-  * tar -xvf   ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+   * tar -xvf   ssd_mobilenet_v2_coco_2018_03_29.tar.gz
 - To go in the directory
    * cd ssd_mobilenet_v2_coco_2018_03_29
    * export MOD_OPT=/opt/intel/openvino/deployment_tools/model_optimizer
- - Command to run 
-* python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --   reverse_input_channels --tensorflow_use_custom_operations_config/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+- Command to run 
+  * python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --   reverse_input_channels --tensorflow_use_custom_operations_config/opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
  
- - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
+ - The model was insufficient for the app because when i tested it failed on intervals like from 24 to 42 seconds it didnot worked as it didn't found the bounding boxes around the person and for next person it didn't detected from 52-53 and also on 1:02 to 1:03 didnt't worked.Again from 1:05 to 1:06,1:35 to 1:36,1:52 to 1:53 it didn't worked.
+so it is not suitable to choose this model.
+ 
   
 - Model 2: [Name]
   - [Model Source]

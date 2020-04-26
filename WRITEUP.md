@@ -64,7 +64,7 @@ so it is not suitable to choose this model.
  - I converted the model to an Intermediate Representation with the following arguments...
     * wget http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
   - Unpack the file
-   * tar -xvf   faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
+    * tar -xvf   faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 - To go in the directory
    * cd faster_rcnn_inception_v2_coco_2018_01_28
 - Command to run 
@@ -73,11 +73,20 @@ so it is not suitable to choose this model.
   * it was obtained in 139 seconds
     
  - The model was insufficient for the app because when i tried to use it gave errors as well as core dumped. 
-  - I tried to improve the model for the app by checking in docmentation and I found that shape attribute is required.So I did that again with shape attribute as well.Still it give errors.
-  - Note:So,mentors suggested me to change the model.
+  - I tried to improve the model for the app by checking in documentation and I found that shape attribute is required.So I did that again with shape attribute as well.Still it give errors.
+  - Note: So,mentors suggested me to change the model.
 
-- Model 3: [Name]
-  - [Model Source]
-  - I converted the model to an Intermediate Representation with the following arguments...
-  - The model was insufficient for the app because...
-  - I tried to improve the model for the app by...
+## Model 3: [ssd_inception_v2_coco_2018_01_28]
+ 
+ - [http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz]
+ - I converted the model to an Intermediate Representation with the following arguments...
+    * wget http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz
+  -Unpack the file
+    * tar -xvf ssd_inception_v2_coco_2018_01_28.tar.gz
+  -To go in directory 
+    * cd ssd_inception_v2_coco_2018_01_28
+  -Command to run
+   * python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --  reverse_input_channels 
+--tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
+
+- The model was insufficient for the app because It also has issues like first model where it failed to detect person in specific specific seconds like :It failed in respective seconds 0:07,0:17 and when second person came it didn't worked for 17 seconds from 0:25 to 0:42. Similarly for 3rd person it didn't worked in 51st second,53rd and 1:05  again it failed for 20 seconds from 1:35 to 1:50.thus average duration may not be optained exactly so we cann't use this model as well.

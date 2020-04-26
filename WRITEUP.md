@@ -81,11 +81,11 @@ so it is not suitable to choose this model.
  - [http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz]
  - I converted the model to an Intermediate Representation with the following arguments...
     * wget http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2018_01_28.tar.gz
-  -Unpack the file
+ - Unpack the file
     * tar -xvf ssd_inception_v2_coco_2018_01_28.tar.gz
-  -To go in directory 
+ - To go in directory 
     * cd ssd_inception_v2_coco_2018_01_28
-  -Command to run
+ - Command to run
    * python $MOD_OPT/mo.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --  reverse_input_channels 
 --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json
 

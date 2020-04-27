@@ -1,7 +1,14 @@
 # Project Write-Up
 
-I am going to use person-detection-retail-0013 model in my project.The command I used to run main.py is:
- * python main.py -i resources/Pedestrian_Detect_2_1_1.mp4 -m person-detection-retail-0013.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU -pt 0.6 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
+I am going to use person-detection-retail-0013 model in my project.
+-I founded my suitable from this site: https://docs.openvinotoolkit.org/2019_R3/_models_intel_index.html
+
+-The model I found suitable was:
+  * https://docs.openvinotoolkit.org/2019_R3/_models_intel_person_detection_retail_0013_description_person_detection_retail_0013.html
+- the commands I used to download the model are:
+  *
+-The command I used to run main.py is:
+  * python main.py -i resources/Pedestrian_Detect_2_1_1.mp4 -m person-detection-retail-0013.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU -pt 0.6 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
 
 ## Explaining Custom Layers
 

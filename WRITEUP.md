@@ -6,11 +6,11 @@ questions.
 
 ## Explaining Custom Layers
 
-The process behind converting custom layers depends on frameowrks we use either it is tensorflow,caffee or kaldi.We can find it [<==>](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Customize_Model_Optimizer.html) here.
+* The process behind converting custom layers depends on frameowrks we use either it is tensorflow,caffee or kaldi.We can find it [<==>](https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Customize_Model_Optimizer.html) here.
 
-Some of the potential reasons for handling custom layers is to optimize our pre-trained models and convert them to a intermediate representation without a lot of loss of accuracy and of course shrink and speed up the Performance.
+* Some of the potential reasons for handling custom layers is to optimize our pre-trained models and convert them to a intermediate representation without a lot of loss of accuracy and of course shrink and speed up the Performance.
 
-My method(s) to compare models before and after conversion to Intermediate Representations
+* My method(s) to compare models before and after conversion to Intermediate Representations
 were...
 
 The difference between model accuracy pre- and post-conversion was...
@@ -21,9 +21,12 @@ The inference time of the model pre- and post-conversion was...
 
 ## Assess Model Use Cases
 
-Some of the potential use cases of the people counter app are...
+Some of the potential use cases of the people counter app are:
+ *  It helps to improve in-store operations.
+ *  Every business with a physical space should count customer traffic to see the bigger picture of what is going on in their business.
+ *  It provides valuable visitor analytics.
 
-Each of these use cases would be useful because...
+Each of these use cases would be useful because every business whether you are a shopping center, retail chain, museum, library, sporting venue, bank, restaurant or other… People Counting data will help you make well-informed decisions about your business.It can help to optimize sales and conversions.
 
 ## Assess Effects on End User Needs
 

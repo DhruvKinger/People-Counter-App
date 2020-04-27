@@ -97,26 +97,24 @@ def main():
     global initial_w, initial_h,prob_threshold
 
         # Initialise the class
-    infer_network = Network()
+    network = Network()
     # Set Probability threshold for detections
     if args.prob_threshold is None:
         prob_threshold= args.prob_threshold
     else:
-        prob_threshold=0.5
+        prob_threshold=0.4
             
 
-    single_image_mode = False
+    image_mode = False
 
     cur_request_id = 0
     last = 0
     total = 0
     start = 0
 
-    # Initialise the class
-    infer_network = Network()
     # Load the network to IE plugin to get shape of input layer
     
-    n, c, h, w = infer_network.load_model(args.model, args.device, 1, 1,
+    n, c, h, w = network.load_model(args.model, args.device, 1, 1,
                                           cur_request_id, args.cpu_extension)[1]
 
     
@@ -125,7 +123,7 @@ def main():
 
     # Checks for input image
     elif args.input.endswith('.jpg') or args.input.endswith('.bmp') :
-        single_image_mode = True
+        image_mode = True
         input_stream = args.input
 
     # Checks for video file
@@ -156,14 +154,14 @@ def main():
         # Start asynchronous inference for specified request.
         
         inf_start = time.time()
-        infer_network.exec_net(cur_request_id, image)
+        network.exec_net(cur_request_id, image)
         # Wait for the result
         
-        if infer_network.wait(cur_request_id) == 0:
+        if network.wait(cur_request_id) == 0:
             det_time = time.time() - inf_start
             # Results of the output layer of the network
         
-        result = infer_network.get_output(cur_request_id)
+        result = network.get_output(cur_request_id)
         frame, current_count = model_out(frame, result)
             
         inf_time_message = "Inference time: {:.3f}ms"\
@@ -198,13 +196,13 @@ def main():
         sys.stdout.buffer.write(frame)  
         sys.stdout.flush()
 
-        if single_image_mode:
+        if image_mode:
             cv2.imwrite('output_image.jpg', frame)
     
     cap.release()
     cv2.destroyAllWindows()
     client.disconnect()
-    infer_network.clean()
+    network.clean()
 
 if __name__ == '__main__':
     main()

@@ -10,14 +10,15 @@ questions.
 
 * Some of the potential reasons for handling custom layers is to optimize our pre-trained models and convert them to a intermediate representation without a lot of loss of accuracy and of course shrink and speed up the Performance.
 
+## Difference in Cloud and Edge
 * My method(s) to compare models before and after conversion to Intermediate Representations
 were...
 
-The difference between model accuracy pre- and post-conversion was...
+* The difference between model accuracy pre- and post-conversion was that it decreased because model was shrinked and help make it faster, although this will not give the model higher inference accuracy. In fact, there will be some loss of accuracy as a result of potential changes like lower precision. However, these losses in accuracy are minimized.
 
-The size of the model pre- and post-conversion was...
+* The size of the model pre- and post-conversion was gradully reduced like when i downloaded it was approxiamtely of 140 MBs and after conversion into IR it reduced to KBs.
 
-The inference time of the model pre- and post-conversion was...
+* If we compare edge with cloud.We can found the cloud is very costly as they have very high computational costs but edge is relatively cheaper as well as faster becuase we are not calling the servers again and again for the requests.Whether I compare it with Google Cloud,Azure or AWS it will always cost lesser than these.Cloud also have more network needs than this.
 
 ## Assess Model Use Cases
 

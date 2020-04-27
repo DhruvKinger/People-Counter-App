@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
  Copyright (c) 2018 Intel Corporation.
@@ -33,14 +32,14 @@ class Network:
     """
 
     def __init__(self):
-        self.net = None
+        self.network = None
         self.plugin = None
         self.input_blob = None
         self.out_blob = None
         self.net_plugin = None
         self.infer_request = None
 
-    def load_model(self, model, device, input_size, output_size, num_requests, cpu_extension=None, plugin=None):
+    def load_model(self, model, device, input_s, output_s, num_requests, cpu_extension=None, plugin=None):
         
         model_xml = model
         model_bin = os.path.splitext(model_xml)[0] + ".bin"
@@ -53,33 +52,33 @@ class Network:
         if cpu_extension and 'CPU' in device:
             self.plugin.add_cpu_extension(cpu_extension)
 
-        self.net = IENetwork(model=model_xml, weights=model_bin)
+        self.network = IENetwork(model=model_xml, weights=model_bin)
         
         if self.plugin.device == "CPU":
-            supported_layers = self.plugin.get_supported_layers(self.net)
-            not_supported = [layers for layers in self.net.layers.keys() if layers not in supported_layers]
+            supported_layers = self.plugin.get_supported_layers(self.network)
+            not_supported = [layers for layers in self.network.layers.keys() if layers not in supported_layers]
             
             if len(not_supported) > 0:
                 sys.exit(1)
 
         if num_requests == 0:
-            self.net_plugin = self.plugin.load(network=self.net)
+            self.net_plugin = self.plugin.load(network=self.network)
         else:
-            self.net_plugin = self.plugin.load(network=self.net, num_requests=num_requests)
+            self.net_plugin = self.plugin.load(network=self.network, num_requests=num_requests)
 
-        self.input_blob = next(iter(self.net.inputs))
-        self.out_blob = next(iter(self.net.outputs))
+        self.input_blob = next(iter(self.network.inputs))
+        self.out_blob = next(iter(self.network.outputs))
         
         return self.plugin, self.get_input_shape()
 
     def get_input_shape(self):
         
-        return self.net.inputs[self.input_blob].shape
+        return self.network.inputs[self.input_blob].shape
 
-    def performance_counter(self, request_id):
+    #def performance_counter(self, request_id):
         
-        perf_count = self.net_plugin.requests[request_id].get_perf_counts()
-        return perf_count
+       # perf_count = self.net_plugin.requests[request_id].get_perf_counts()
+        #return perf_count
 
     def exec_net(self, request_id, frame):
         
@@ -94,13 +93,13 @@ class Network:
 
     def get_output(self, request_id, output=None):
         if output:
-            res = self.infer_request_handle.outputs[output]
+            result = self.infer_request_handle.outputs[output]
         else:
-            res = self.net_plugin.requests[request_id].outputs[self.out_blob]
-        return res
+            result = self.net_plugin.requests[request_id].outputs[self.out_blob]
+        return result
 
     def clean(self):
        
         del self.net_plugin
         del self.plugin
-        del self.net
+        del self.network

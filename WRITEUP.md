@@ -1,7 +1,7 @@
 # Project Write-Up
 
 I am going to use person-detection-retail-0013 model in my project.
-- I founded my suitable from this site: https://docs.openvinotoolkit.org/2019_R3/_models_intel_index.html
+- I founded my suitable model from this site: https://docs.openvinotoolkit.org/2019_R3/_models_intel_index.html
 
 - The model I found suitable was:
   * https://docs.openvinotoolkit.org/2019_R3/_models_intel_person_detection_retail_0013_description_person_detection_retail_0013.html

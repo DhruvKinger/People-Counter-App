@@ -26,13 +26,18 @@ Some of the potential use cases of the people counter app are:
  *  Every business with a physical space should count customer traffic to see the bigger picture of what is going on in their business.
  *  It provides valuable visitor analytics.
 
-*Each of these use cases would be useful because every business whether you are a shopping center, retail chain, museum, library, sporting venue, bank, restaurant or other.People Counting data will help you make well-informed decisions about your business.
-*It can help to optimize sales and conversions.
+* Each of these use cases would be useful because every business whether you are a shopping center, retail chain, museum, library, sporting venue, bank, restaurant or other.People Counting data will help you make well-informed decisions about your business.
+* It can help to optimize sales and conversions.
 
 ## Assess Effects on End User Needs
 
 Lighting, model accuracy, and camera focal length/image size have different effects on a
-deployed edge model. The potential effects of each of these are as follows...
+deployed edge model. The potential effects of each of these are as follows:
+ * Better be the model accuracy more are the chances to obtain the desired results through an app deployed at edge.
+ * Lighting here refers to lighter the model more faster it will get execute and more adequate results in faster time as compared to a heavier model.
+ * Focal length/image also have a effect as better be the pixel quality of image or better the camera focal length,more clear results ww will obtain.
+
+
 
 ## Model Research
 
